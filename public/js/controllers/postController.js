@@ -4,8 +4,6 @@
     app.controller('PostController', ['$scope',
         function ($scope) {
 
-            $scope.post = {};
-
             function datePickerOpen() {
                 $scope.$apply(function () {
                     $scope.isDatePickerOpen = true;

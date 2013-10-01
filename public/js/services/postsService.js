@@ -5,6 +5,7 @@ appServices.factory('postsService', ['ajaxService',
 
         function getPosts() {
             return ajaxService.doGet('posts');
+//            return ajaxService.doGetAndBlockUi('posts');
         }
 
         return {

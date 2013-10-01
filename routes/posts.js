@@ -1,4 +1,5 @@
-/* global exports*/
+/* global exports, require*/
+var sleep = require('sleep');
 
 var posts = [
     {
@@ -22,6 +23,7 @@ var posts = [
 ];
 
 exports.list = function (req, res) {
+//    sleep.sleep(2);
     res.json(posts);
 };
 

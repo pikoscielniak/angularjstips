@@ -6,7 +6,6 @@
 
             function fetchPosts() {
                 postsService.getPosts().then(function (data) {
-                    debugger;
                     $scope.posts = data;
                 });
             }

@@ -6,12 +6,14 @@
 
             function datePickerOpen() {
                 $scope.$apply(function () {
-                    $scope.isDatePickerOpen = true;
+                    $scope.safeApply(function () {
+                        $scope.isDatePickerOpen = true;
+                    });
                 });
             }
 
             function datePickerClose() {
-                $scope.$apply(function () {
+                $scope.safeApply(function () {
                     $scope.isDatePickerOpen = false;
                 });
             }

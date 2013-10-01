@@ -4,18 +4,12 @@
     app.controller('PostController', ['$scope',
         function ($scope) {
 
-            $scope.post = {};
-
             function datePickerOpen() {
-                $scope.$apply(function () {
-                    $scope.isDatePickerOpen = true;
-                });
+                $scope.isDatePickerOpen = true;
             }
 
             function datePickerClose() {
-                $scope.$apply(function () {
-                    $scope.isDatePickerOpen = false;
-                });
+                $scope.isDatePickerOpen = false;
             }
 
             $scope.datePickerOptions = {

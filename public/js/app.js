@@ -10,7 +10,13 @@ var app = angular.module('angularJsTips', ['ngRoute','angularJsTips.services']).
                 controller: 'PostsController'
             });
 
-        $routeProvider.otherwise({ redirectTo: '/posts' });
+        $routeProvider.
+            when('/calculator', {
+                templateUrl: 'templates/controllers/calculator.html',
+                controller: 'CalculatorController'
+            });
+
+        $routeProvider.otherwise({ redirectTo: '/calculator' });
     }]);
 
 app.run(['appConfigurator', function (appConfigurator) {

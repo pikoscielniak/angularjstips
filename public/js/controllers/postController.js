@@ -23,5 +23,14 @@
                 close: datePickerClose
             };
 
+            function destroyPublishDateDatePicker() {
+                $scope.publishDateKendo.destroy();
+            }
+
+            $scope.$on('$destroy', function () {
+                debugger;
+                destroyPublishDateDatePicker();
+            });
+
         }]);
 }());

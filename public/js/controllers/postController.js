@@ -6,7 +6,9 @@
 
             function datePickerOpen() {
                 $scope.$apply(function () {
-                    $scope.isDatePickerOpen = true;
+                    $scope.$apply(function () {
+                        $scope.isDatePickerOpen = true;
+                    });
                 });
             }
 

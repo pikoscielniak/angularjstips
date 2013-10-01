@@ -12,7 +12,7 @@
             <label class="control-label" for="title">Tytuł</label>
 
             <div class="controls">
-                <input type="text" id="title" placeholder="Tytuł">
+                <input ng-model="post.title" type="text" id="title" placeholder="Tytuł">
             </div>
         </div>
         <div class="control-group">
@@ -20,7 +20,7 @@
                 publikacji</label>
 
             <div class="controls">
-                <input kendo-date-picker id="publishDate" k-options="datePickerOptions">
+                <input ng-model="post.publishDate" kendo-date-picker id="publishDate" k-options="datePickerOptions">
             </div>
         </div>
         <div class="control-group">
@@ -28,7 +28,7 @@
             <label class="control-label" for="content">Treść</label>
 
             <div class="controls">
-                <textarea id="content" rows="3"></textarea>
+                <textarea id="content" ng-model="post.content" rows="3"></textarea>
             </div>
         </div>
         <div class="control-group">

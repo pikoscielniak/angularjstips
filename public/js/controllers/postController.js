@@ -28,7 +28,6 @@
             }
 
             $scope.$on('$destroy', function () {
-                debugger;
                 destroyPublishDateDatePicker();
             });
 

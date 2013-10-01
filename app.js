@@ -1,11 +1,8 @@
-
-/**
- * Module dependencies.
- */
+/* global require, process, __dirname, console*/
 
 var express = require('express');
 var routes = require('./routes');
-var user = require('./routes/user');
+var posts = require('./routes/posts');
 var http = require('http');
 var path = require('path');
 
@@ -25,12 +22,13 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+if ('development' === app.get('env')) {
+    app.use(express.errorHandler());
 }
 
 app.get('/', routes.index);
+app.get('/posts', posts.list);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+http.createServer(app).listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + app.get('port'));
 });

@@ -21,13 +21,8 @@ appServices.factory('notifyService', function () {
         return show({ title: 'Błąd : ', message: message, icon: 'picon-error' });
     }
 
-    function alert(message) {
-        return show({ title: 'Wiadomość : ', message: message, icon: 'picon-message' });
-    }
-
     return {
         showMessage: showMessage,
-        showErrorMessage: showErrorMessage,
-        alert: alert
+        showErrorMessage: showErrorMessage
     };
 });

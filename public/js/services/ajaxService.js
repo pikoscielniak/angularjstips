@@ -1,6 +1,6 @@
 ﻿/* global appServices*/
-appServices.factory('ajaxService', ['$http', '$q', 'notifyService', 'uiBlocker',
-    function ($http, $q, notifyService, uiBlocker) {
+appServices.factory('ajaxService', ['$http', '$q', 'notifyService', 'uiBlocker', 'dateTimeUtils',
+    function ($http, $q, notifyService, uiBlocker, dateTimeUtils) {
         "use strict";
 
         var errorMessage = "Wystąpił błąd podczas przetwarzania żądania";
@@ -21,7 +21,7 @@ appServices.factory('ajaxService', ['$http', '$q', 'notifyService', 'uiBlocker',
         }
 
         function getTimestamp() {
-            return new Date().getTime();
+            return dateTimeUtils.getNow().getTime();
         }
 
         function getConfig(dataToSend) {
@@ -35,8 +35,8 @@ appServices.factory('ajaxService', ['$http', '$q', 'notifyService', 'uiBlocker',
             return config;
         }
 
-        function doGet(url, dataToSend, blockUi) {
-            blockUi(blockUi);
+        function doGet(url, dataToSend, shouldBlockUi) {
+            blockUi(shouldBlockUi);
             var deferred = $q.defer();
 
             var config = getConfig(dataToSend);
@@ -53,16 +53,16 @@ appServices.factory('ajaxService', ['$http', '$q', 'notifyService', 'uiBlocker',
             return deferred.promise;
         }
 
-        function doPostWithBlock(url, dataToSend) {
+        function doPostAndBlockUi(url, dataToSend) {
             return doPost(url, dataToSend, true);
         }
 
-        function doGetWithBlock(url, dataToSend) {
+        function doGetAndBlockUi(url, dataToSend) {
             return doGet(url, dataToSend, true);
         }
 
-        function blockUi(blockUi) {
-            if (blockUi) {
+        function blockUi(shouldBlock) {
+            if (shouldBlock) {
                 uiBlocker.block();
             }
         }
@@ -81,7 +81,7 @@ appServices.factory('ajaxService', ['$http', '$q', 'notifyService', 'uiBlocker',
         return {
             doGet: doGet,
             doPost: doPost,
-            doPostWithBlock: doPostWithBlock,
-            doGetWithBlock: doGetWithBlock
+            doPostAndBlockUi: doPostAndBlockUi,
+            doGetAndBlockUi: doGetAndBlockUi
         };
     }]);

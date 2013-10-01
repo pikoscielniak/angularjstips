@@ -14,14 +14,19 @@ appServices.factory('dateTimeUtils',
             return moment(date).toJSON();
         }
 
-        function toUtc(date){
+        function toUtc(date) {
             return moment(date).utc();
+        }
+
+        function getNow() {
+            return new Date();
         }
 
         return {
             getDateFromJson: getDateFromJson,
             toJson: toJson,
             addDays: addDays,
-            toUtc: toUtc
+            toUtc: toUtc,
+            getNow: getNow
         };
     });

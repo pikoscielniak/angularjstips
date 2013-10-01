@@ -1,1 +1,16 @@
 <h2>Posts</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Tytuł</th>
+        <th>Autor</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="post in posts">
+        <td>{{ post.title }}</td>
+        <td>{{ post.content | limitTo: 120}}</td>
+    </tr>
+    </tbody>
+</table>

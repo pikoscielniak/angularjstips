@@ -1,0 +1,40 @@
+<div class="row">
+    <h2>Edycja</h2>
+</div>
+<div class="row">
+    <p class="offset8">
+        <a class="btn" ng-href="#/posts">Lista</a>
+    </p>
+</div>
+<div class="row">
+    <form class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="title">Tytuł</label>
+
+            <div class="controls">
+                <input type="text" id="title" placeholder="Tytuł">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="publishDate" ng-class="{emphasise: isDatePickerOpen}">Data
+                publikacji</label>
+
+            <div class="controls">
+                <input kendo-date-picker id="publishDate" k-options="datePickerOptions">
+            </div>
+        </div>
+        <div class="control-group">
+            <label>{{ dateChange}}</label>
+            <label class="control-label" for="content">Treść</label>
+
+            <div class="controls">
+                <textarea id="content" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn">Zapisz</button>
+            </div>
+        </div>
+    </form>
+</div>

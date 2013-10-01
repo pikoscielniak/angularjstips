@@ -1,10 +1,12 @@
 doctype 5
-html(ng-app='angualrJsTips')
+html(ng-app='angularJsTips')
     head
         title= title
         meta (name='viewport', content='width=device-width, initial-scale=1.0')
         link(rel='stylesheet', href='/stylesheets/style.css')
         link(rel='stylesheet', href='/vendor/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/vendor/kendo/kendo.common.min.css')
+        link(rel='stylesheet', href='/vendor/kendo/kendo.default.min.css')
     body
         div.container
             div(ng-view)
@@ -12,6 +14,15 @@ html(ng-app='angualrJsTips')
         script(src='/vendor/jquery/jquery-1.10.2.min.js')
         script(src='/vendor/angular/angular.min.js')
         script(src='/vendor/angular/angular-route.min.js')
+        script(src='/vendor/kendo/kendo.web.js')
+        script(src='/vendor/kendo/angular-kendo.js')
         script(src='/vendor/bootstrap/js/bootstrap.min.js')
+        script(src='/vendor/blockUi/jquery.blockUI.min.js')
+        script(src='/vendor/momentjs/moment.min.js')
         script(src='/js/app.js')
-        script(src='/js/controllers/controllers.js')
+        script(src='/js/controllers/postsController.js')
+        script(src='/js/services/appConfigurator.js')
+        script(src='/js/services/ajaxService.js')
+        script(src='/js/services/dateTimeUtils.js')
+        script(src='/js/services/notifyService.js')
+        script(src='/js/services/uiBlocker.js')

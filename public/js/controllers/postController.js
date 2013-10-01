@@ -1,8 +1,8 @@
 /*global app*/
 (function () {
     "use strict";
-    app.controller('PostController', ['$scope',
-        function ($scope) {
+    app.controller('PostController', ['$scope', 'sharedService',
+        function ($scope, sharedService) {
 
             function datePickerOpen() {
                 $scope.$apply(function () {
@@ -11,6 +11,8 @@
                     });
                 });
             }
+
+            $scope.sharedService = sharedService;
 
             function datePickerClose() {
                 $scope.safeApply(function () {

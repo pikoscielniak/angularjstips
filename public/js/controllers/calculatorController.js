@@ -34,5 +34,13 @@
                 }
                 return pi;
             }
+
+            var aWatchCounter = 0;
+
+            $scope.$watch('a', function () {
+                aWatchCounter++;
+                console.log(aWatchCounter);
+            });
+
         }]);
 }());

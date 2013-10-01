@@ -12,6 +12,10 @@
                 return r;
             };
 
+            $scope.calculate = function () {
+                $scope.result = calculatePi();
+            };
+
             function getA() {
                 return parseFloat($scope.a);
             }
@@ -20,11 +24,11 @@
                 return parseFloat($scope.b);
             }
 
-            $scope.calculatePi = function () {
+            function calculatePi() {
                 var num = getA();
                 var pi = 4, top = 4, bot = 3, minus = true;
                 return next(pi, top, bot, minus, num);
-            };
+            }
 
             function next(pi, top, bot, minus, num) {
                 for (var i = 0; i < num; i++) {

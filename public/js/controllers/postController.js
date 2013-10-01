@@ -1,14 +1,14 @@
 /*global app*/
 (function () {
     "use strict";
-    app.controller('PostController', ['$scope',
-        function ($scope) {
+    app.controller('PostController', ['$scope', 'postsService',
+        function ($scope, postsService) {
+
+            $scope.post = {};
 
             function datePickerOpen() {
-                $scope.$apply(function () {
-                    $scope.safeApply(function () {
-                        $scope.isDatePickerOpen = true;
-                    });
+                $scope.safeApply(function () {
+                    $scope.isDatePickerOpen = true;
                 });
             }
 
@@ -21,6 +21,15 @@
             $scope.datePickerOptions = {
                 open: datePickerOpen,
                 close: datePickerClose
+            };
+
+            function getByIdSuccess(data) {
+                $scope.post = data;
+            }
+
+            $scope.cancel = function () {
+                postsService.getById(1)
+                    .then(getByIdSuccess);
             };
 
         }]);

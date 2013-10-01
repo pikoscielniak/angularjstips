@@ -7,7 +7,12 @@ appServices.factory('postsService', ['ajaxService',
             return ajaxService.doGet('posts');
         }
 
+        function getById(id) {
+            return ajaxService.doGet('post', {id: id});
+        }
+
         return {
-            getPosts: getPosts
+            getPosts: getPosts,
+            getById: getById
         };
     }]);
